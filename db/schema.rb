@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(version: 20171030181546) do
     t.string "gender"
     t.integer "parentone"
     t.integer "parenttwo"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,6 +42,10 @@ ActiveRecord::Schema.define(version: 20171030181546) do
     t.string "email"
     t.string "password_digest"
     t.boolean "is_teacher"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
