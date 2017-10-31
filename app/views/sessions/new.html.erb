@@ -1,0 +1,18 @@
+<h1>Log In</h1>
+<p id="alert"><%= alert %></p>
+<%= form_tag login_path do %>
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+  <div class="actions"><%= submit_tag "Log In" %></div>
+<% end %>
+
+<h2>Don't have an account?</h2>
+
+
+<%= link_to 'Sign Up Here!', new_user_path %>
