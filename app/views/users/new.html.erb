@@ -10,6 +10,13 @@
       </ul>
     </div>
   <% end %>
+<h2>Are you a..</h2>
+  <div class="field">
+   <%= f.radio_button(:is_teacher, "true") %>
+   <%= f.label :is_teacher, "Teacher" %>
+   <%= f.radio_button(:is_teacher, "false") %>
+   <%= f.label :is_teacher, "Parent"%>
+
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>

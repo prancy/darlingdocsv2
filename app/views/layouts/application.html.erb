@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Darlingdocs</title>
+    <title>Darling Docs</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,17 @@
   </head>
 
   <body>
+  <p>
+    <% if current_user %>
+      Welcome, <%= current_user.first_name %>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to 'Log Out', session_path('dummy'), method: :delete %>
+    <% else %>
+      <%= link_to 'Log In', login_path %>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+    <%= link_to 'Sign Up', new_user_path %>
+    <% end %>
+  </p>
     <%= yield %>
   </body>
 </html>
