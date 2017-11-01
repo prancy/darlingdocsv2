@@ -7,4 +7,7 @@ Rails.application.routes.draw do
 
   get '/login', to: 'sessions#new'
 
+  # student routes
+  get '/students', to: 'students#index'
+
 end

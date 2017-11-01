@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
 
     def index
+      # if current_user.teacher 
+      #   @students = Student.all
+      # else 
+      # @students = Student.first
+      # # ^ student needs to be kid of parent
+      # end
     end
 
     def new
@@ -22,6 +28,6 @@ class UsersController < ApplicationController
     
         # Implement Strong Params
         def user_params
-          params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :image)
+          params.require(:user).permit(:first_name, :last_name, :is_teacher, :email, :password, :password_confirmation, :image)
         end
 end
