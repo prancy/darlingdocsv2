@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :reports
 
   get '/login', to: 'sessions#new'
 
@@ -15,6 +16,6 @@ Rails.application.routes.draw do
   post '/students', to: 'students#create'
   put '/students/:id', to: 'students#update'
   patch '/students/:id', to: 'students#update'
-  delete 'students/:id', to: 'students#destroy'
+  delete 'students/:id', to: 'students#destroy' 
 
 end

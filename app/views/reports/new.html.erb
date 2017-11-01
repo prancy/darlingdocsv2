@@ -1,0 +1,19 @@
+<h1>Create a new report</h1>
+
+<%= form_for @report do |f| %>
+  <div>
+    <%= f.label :participation %>
+    <%= f.text_field :participation %>
+  </div>
+  <div>
+    <%= f.label :homework %>
+    <%= f.text_field :homework %>
+  </div>
+  <div>
+    <%= f.label :behavior %>
+    <%= f.text_field :behavior %>
+  </div>
+  <%= f.submit "Add New Report" %>
+<% end %>
+
+<%= link_to "Back to the reports", reports_path %>
