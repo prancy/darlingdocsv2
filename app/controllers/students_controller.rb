@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
 
     def create
         @student = Student.new(params.require(:student).permit(:name, :age, :gender))
-      
+        @student.parent = current_user
         if @student.save
           redirect_to student_path(@student)
         else
