@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   # student routes
   get '/students', to: 'students#index'
+  get '/students/new', to: 'students#new'
   get '/students/:id', to: 'students#show', as: :student
+  post '/students', to: 'students#create'
 
 end
