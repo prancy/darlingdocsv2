@@ -7,7 +7,11 @@ class StudentsController < ApplicationController
         # end
 
         @students = Student.all
-        puts @students
         @test = 'nancy'
     end
+    # @bean = Bean.find(params[:id])
+    def show
+        @student = Student.find(params[:id])
+    end
+
 end

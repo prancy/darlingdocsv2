@@ -3,7 +3,7 @@
 <ul>
     <% @students.each do |student| %>
         <li>
-            <strong><%= student.name %></strong> - <%= student.age %> <%= student.gender %>
+            <strong><%= link_to student.name, student_path(student) %></strong> - <%= student.age %> <%= student.gender %> 
         </li>
     <% end %>
 </ul>
