@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
         @students = Student.all
         @test = 'nancy'
     end
-    # @bean = Bean.find(params[:id])
+
     def show
         @student = Student.find(params[:id])
     end
@@ -27,5 +27,26 @@ class StudentsController < ApplicationController
           render :new
         end
       end
+    
+    def edit
+        @student = Student.find(params[:id])
+    end
+
+    def update
+        @student = Student.find(params[:id])
+        
+        if @student.update_attributes(params.require(:student).permit(:name, :age, :gender))
+            redirect_to students_path
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @student = Student.find(params[:id])
+        @student.destroy
+        redirect_to students_path
+      end
 
 end
+
