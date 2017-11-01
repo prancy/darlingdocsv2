@@ -9,12 +9,8 @@ class ReportsController < ApplicationController
     end
         
     def create
-        @report = Report.new(params.require(:report).permit(:particiption, :homework, :behavior))
-        
-          if @report.save
-            redirect_to reports_path
-          else
-            render :new
-          end
+        @student = Student.find(params[:student_id])
+            @student.reports.create(params.require(:report).permit(:participation, :homework, :behavior))
+        redirect_to student_path(params[:student_id])
     end
 end

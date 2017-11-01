@@ -1,6 +1,6 @@
 <h1>Create a new report</h1>
 
-<%= form_for @report do |f| %>
+<%= form_for(@report, url: student_reports_path(params[:student_id])) do |f| %>
   <div>
     <%= f.label :participation %>
     <%= f.text_field :participation %>
@@ -16,4 +16,4 @@
   <%= f.submit "Add New Report" %>
 <% end %>
 
-<%= link_to "Back to the reports", reports_path %>
+<%= link_to "Back to the reports", students_path(params[:id]) %>

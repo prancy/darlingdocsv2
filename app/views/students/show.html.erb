@@ -2,4 +2,12 @@
 
 <%= link_to "See All Students", students_path %>
 
-<%= link_to "Add a Report", new_report_path %>
+<%= link_to "Add a Report", new_student_report_path(@student.id) %>
+
+<% @student.reports.each do |report| %>
+
+    <%= report.participation %>
+    <%= report.behavior %>
+    <%= report.homework %>
+
+<% end %>
