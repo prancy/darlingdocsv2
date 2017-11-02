@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
 
   def index
-    @student = Student.new
+    @student = Student.all
+    
   end
 
   def new
-    # Provide the model instance to the form_for helper
     @user = User.new
   end
     
@@ -13,11 +13,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      if @user.is_teacher
-        redirect_to teachers_path
-      else
-        redirect_to user_students_path
-      end
+      redirect_to users_path
+    else
+      redirect_to root_path
     end
   end
     
