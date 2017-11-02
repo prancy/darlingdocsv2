@@ -14,9 +14,9 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       if @user.is_teacher
-        redirect_to students_path
+        redirect_to teachers_path
       else
-        redirect_to new_student_path
+        redirect_to user_students_path
       end
     end
   end

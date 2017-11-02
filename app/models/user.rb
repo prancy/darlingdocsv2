@@ -5,4 +5,5 @@ class User < ApplicationRecord
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
     # validates_length_of :password, minimum: 6
     has_one :student
+    accepts_nested_attributes_for :student, allow_destroy: true
    end

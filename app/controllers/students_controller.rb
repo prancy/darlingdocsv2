@@ -7,7 +7,6 @@ class StudentsController < ApplicationController
         # end
 
         @students = Student.all
-        @test = 'nancy'
     end
 
     def show
