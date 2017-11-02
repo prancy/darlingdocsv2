@@ -13,9 +13,11 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to users_path
+      @student = Student.new(student_params)
+      @user.student = @student
+        redirect_to users_path
     else
-      redirect_to root_path
+      render new_user_path
     end
   end
     
@@ -23,5 +25,8 @@ class UsersController < ApplicationController
     
     def user_params
       params.require(:user).permit(:first_name, :last_name, :is_teacher, :email, :password, :password_confirmation, :image)
+    end
+    def student_params
+      params.permit(:name, :age, :gender)
     end
 end

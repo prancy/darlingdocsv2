@@ -33,5 +33,20 @@
     <div class="field">
     <%= f.file_field :image %>
   </div>
+  <hr>
+  <h3>Your Student</h3>
+    <div class="field">
+      <%= label_tag "Student's Name" %>
+      <%= text_field_tag :name %>
+    </div>
+    <div class="field">
+      <%= label_tag "Student's Age" %>
+      <%= text_field_tag :age %>
+    </div>
+    <div class="field">
+      <%= label_tag "Student's Gender" %>
+      <%= text_field_tag :gender %>
+    </div>
+
   <div class="actions"><%= f.submit %></div>
 <% end %>
