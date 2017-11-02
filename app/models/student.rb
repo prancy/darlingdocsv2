@@ -1,5 +1,5 @@
 class Student < ApplicationRecord
-    belongs_to :user, optional: true
-    belongs_to :parent, class_name: 'User'
+    belongs_to :user
+    belongs_to :teacher, optional: true
     has_many :reports, dependent: :destroy
 end
