@@ -1,0 +1,21 @@
+<h1>User Index</h1>
+
+<h1>Add a new student!</h1>
+
+<%= form_for @student do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+  </div>
+  <div>
+    <%= f.label :gender %>
+    <%= f.text_field :gender %>
+  </div>
+  <%= f.submit "Add New Student" %>
+<% end %>
+
+<%= link_to "Back to the Student List!", students_path(params[:id]) %>

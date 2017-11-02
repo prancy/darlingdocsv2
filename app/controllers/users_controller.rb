@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def index
+    @student = Student.new
   end
 
   def new
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
       if current_user.is_teacher
         redirect_to students_path
       else
-        render :new
+        redirect_to users_path
       end
     end
   end
