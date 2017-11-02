@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :is_teacher
   
     def is_teacher
-      current_user && current_user.class == Teacher
+      current_user && current_user.class 
     end
 
     def current_user

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         else
             user = Teacher.find_by(email: params[:email])
             if user && user.authenticate(params[:password])
-                session[:user_id] = user.id
+                session[:teacher_id] = teacher.id
                 redirect_to students_path notice: 'Logged in!'
             else
                 flash.now.alert = 'Invalid login credentials - try again!'

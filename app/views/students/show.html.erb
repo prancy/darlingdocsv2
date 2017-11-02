@@ -16,7 +16,7 @@
 
 <%= link_to "Return", student_path %>
 
-<%= link_to "Add a Report", new_student_report_path([:id]) %>
+<%= link_to "Add a Report", new_student_report_path(@student) %>
 
 <% @student.reports.each do |report| %>
 
