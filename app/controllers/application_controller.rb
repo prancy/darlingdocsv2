@@ -3,8 +3,12 @@ class ApplicationController < ActionController::Base
 
   private
   
-    helper_method :current_user
+    helper_method :current_user, :is_teacher
   
+    def is_teacher
+      current_user && current_user.class == Teacher
+    end
+
     def current_user
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
@@ -12,4 +16,6 @@ class ApplicationController < ActionController::Base
     def authorize
       redirect_to login_path, alert: 'Not authorized - you must be logged in!' if current_user.nil?
     end
+
+
 end

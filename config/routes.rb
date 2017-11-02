@@ -2,17 +2,13 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
   
-  resources :teachers do
-    resources :students do
-      resources :reports
-    end
+
+  resources :students do
+    resources :reports, shallow: true
   end
 
-  resources :users do
-    resources :students do
-      resources :reports
-    end
-  end
+  resources :users, only: [:new, :create, :index]
+  resources :teachers
 
   resources :sessions, only: [:new, :create, :destroy]
 

@@ -2,10 +2,6 @@ class StudentsController < ApplicationController
 
 
     def index
-        # if current_user.teacher
-            # @students = current.user.teacher
-        # end
-
         @students = Student.all
     end
 
@@ -16,16 +12,6 @@ class StudentsController < ApplicationController
     def new
         @student = Student.new
     end
-
-    def create
-        @student = Student.new(params.require(:student).permit(:name, :age, :gender))
-        @student.parent = current_user
-        if @student.save
-          redirect_to student_path(@student)
-        else
-          render :new
-        end
-      end
     
     def edit
         @student = Student.find(params[:id])
@@ -33,7 +19,6 @@ class StudentsController < ApplicationController
 
     def update
         @student = Student.find(params[:id])
-        
         if @student.update_attributes(params.require(:student).permit(:name, :age, :gender))
             redirect_to students_path
         else

@@ -11,9 +11,9 @@ class TeachersController < ApplicationController
       @teacher = Teacher.new(teacher_params)
       if @teacher.save
         session[:teacher_id] = @teacher.id
-        redirect_to teachers_path
+        redirect_to students_path(@teacher)
       else
-        redirect_to teacher_students_path
+        redirect_to new_teacher_path
       end
     end
       

@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    @student = Student.all
     
   end
 
@@ -15,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       @student = Student.new(student_params)
       @user.student = @student
-        redirect_to users_path
+        redirect_to users_path(@student)
     else
       render new_user_path
     end

@@ -1,8 +1,22 @@
 <h1>This is <%= @student.name %>'s Progress </h1>
 
-<%= link_to "See All Students", students_path %>
+<p>
+  <strong>Name: </strong>
+  <%= @student.name %>
+</p>
+<p>
+  <strong>Age: </strong>
+  <%= @student.age %>
+</p>
+<p>
+  <strong>Gender: </strong>
+  <%= @student.gender %>
+</p>
 
-<%= link_to "Add a Report", new_student_report_path(@student.id) %>
+
+<%= link_to "Return", student_path %>
+
+<%= link_to "Add a Report", new_student_report_path([:id]) %>
 
 <% @student.reports.each do |report| %>
 
