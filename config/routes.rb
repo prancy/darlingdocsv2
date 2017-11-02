@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :reports, shallow: true
   end
 
+  patch '/students/:id/enroll', to: 'students#enroll', as: 'enroll'
+
   resources :users, only: [:new, :create, :index]
   resources :teachers
 

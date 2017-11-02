@@ -1,8 +1,7 @@
 class StudentsController < ApplicationController
 
-
     def index
-        @students = Student.all
+        @students = current_user.students
     end
 
     def show
@@ -30,7 +29,12 @@ class StudentsController < ApplicationController
         @student = Student.find(params[:id])
         @student.destroy
         redirect_to students_path
-      end
+    end
+
+    def enroll
+        Student.find(params[:id]).update_attributes(teacher_id: current_user.id)
+        redirect_to students_path
+    end
 
 end
 

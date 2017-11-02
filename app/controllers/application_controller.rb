@@ -6,11 +6,15 @@ class ApplicationController < ActionController::Base
     helper_method :current_user, :is_teacher
   
     def is_teacher
-      current_user && current_user.class 
+      session[:is_teacher]
     end
 
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+      if is_teacher
+        @current_user ||= Teacher.find_by(id: session[:user_id]) if session[:user_id]
+      else
+        @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+      end
     end
 
     def authorize

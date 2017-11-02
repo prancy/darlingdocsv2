@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      session[:is_teacher] = nil
       @student = Student.new(student_params)
       @user.student = @student
         redirect_to users_path(@student)

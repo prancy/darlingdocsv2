@@ -2,6 +2,10 @@ class TeachersController < ApplicationController
   
     def index
     end
+
+    def show
+      @students = Student.available
+    end
   
     def new
       @teacher = Teacher.new
@@ -10,8 +14,9 @@ class TeachersController < ApplicationController
     def create
       @teacher = Teacher.new(teacher_params)
       if @teacher.save
-        session[:teacher_id] = @teacher.id
-        redirect_to students_path(@teacher)
+        session[:user_id] = @teacher.id
+        session[:is_teacher] = true
+        redirect_to students_path
       else
         redirect_to new_teacher_path
       end
