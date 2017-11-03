@@ -13,6 +13,11 @@
   <%= @student.gender %>
 </p>
 
+<h1>Reports</h1>
+<% @student.reports.each do |report| %>
+<p> <%= report.participation %> </p>
+
+<% end %>
 
 <%= link_to "Return", student_path %>
 
