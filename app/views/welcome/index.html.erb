@@ -1,15 +1,6 @@
 <div class='container-1'>
 <div class='navbar-1'><h1>Welcome to Darling Docs</h1></div></div>
 <br>
-
-<center><h2>Getting Started</h2></center>
 <div class='container-2'>
-
-<%= link_to '<button class="button">Are you a Parent?</button>'.html_safe, new_user_path %>
-<% link_to 'Are you a Parent?', new_user_path %> &nbsp; or &nbsp;
-<%= link_to '<button class="button">Are you a Teacher?</button>'.html_safe, new_teacher_path %>
-
-
+<%= link_to 'Are you a Parent?', new_user_path %> &nbsp; or &nbsp; <%= link_to 'Are you a Teacher?', new_teacher_path %>
 </div>
-
-<center><%= link_to 'Log In', login_path %></center>
