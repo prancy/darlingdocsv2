@@ -9,8 +9,14 @@ class ReportsController < ApplicationController
     end
         
     def create
+        puts 'aosdijfaoisdfoaisjdfaiosjdfoaisjdfoaisf'
         @student = Student.find(params[:student_id])
-            @student.reports.create(params.require(:report).permit(:participation, :homework, :behavior))
-        redirect_to student_path(params[:student_id])
+        data = params.require(:report).permit(:participation, :homework, :behavior)
+        data[:teacher_id] = current_user.id
+        if @student.reports.create(data)
+            redirect_to student_path(params[:student_id])
+        else
+            redirect_to new_student_report_path
+        end
     end
 end
