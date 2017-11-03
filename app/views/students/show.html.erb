@@ -35,5 +35,6 @@
         <td><%= report.homework %></td>
       </tr>
     <% end %>
+    <%= link_to '<button class="button">Add a Report</button>'.html_safe, new_student_report_path(@student) %>
   </tbody>
 </table>
