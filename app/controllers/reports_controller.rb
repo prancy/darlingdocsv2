@@ -9,7 +9,6 @@ class ReportsController < ApplicationController
     end
         
     def create
-        puts 'aosdijfaoisdfoaisjdfaiosjdfoaisjdfoaisf'
         @student = Student.find(params[:student_id])
         data = params.require(:report).permit(:participation, :homework, :behavior)
         data[:teacher_id] = current_user.id
