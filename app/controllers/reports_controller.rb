@@ -9,7 +9,6 @@ class ReportsController < ApplicationController
     end
         
     def create
-        puts 'aosdijfaoisdfoaisjdfaiosjdfoaisjdfoaisf'
         @student = Student.find(params[:student_id])
         data = params.require(:report).permit(:participation, :homework, :behavior)
         data[:teacher_id] = current_user.id
@@ -21,10 +20,17 @@ class ReportsController < ApplicationController
     end
 
     def edit
-        @report = Report.find(params[:id])
-      end
+        @report = Student.find(params[:id]).reports.first
+    end
 
-   
+    def update
+        @report = Student.find(params[:id]).reports.first
+    if @report.update_attributes(report_params)
+            redirect_to student_path
+    else
+        render 'edit'
+        end
+    end
 
 
     def destroy
@@ -33,6 +39,10 @@ class ReportsController < ApplicationController
         redirect_to student_path(params[:student_id])
     end
 
+private
 
+    def report_params
+        params.require(:report).permit(:participation, :behavior, :homework)
+    end
     
 end
