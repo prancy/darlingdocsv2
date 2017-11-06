@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       session[:is_teacher] = nil
       @student = Student.new(student_params)
       @user.student = @student
-        redirect_to users_path(@student)
+        redirect_to student_path(@student)
     else
       render new_user_path
     end

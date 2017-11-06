@@ -39,6 +39,8 @@
         <td><%= report.behavior %></td>
         <td><%= report.homework %></td>
       </tr>
+    <%= link_to "Delete this report", report_path(params[:id]), method: :delete, data: { confirm: "Are you sure you want to delete this report?"} %>
+    <%= link_to "Edit this report", edit_report_path(params[:id]) %>
     <% end %>
   </tbody>
 </table>
