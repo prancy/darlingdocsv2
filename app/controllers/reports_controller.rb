@@ -20,13 +20,13 @@ class ReportsController < ApplicationController
     end
 
     def edit
-        @report = Student.find(params[:id]).reports.first
+        @report = Report.find(params[:id])
     end
 
     def update
-        @report = Student.find(params[:id]).reports.first
+        @report = Report.find(params[:id])
     if @report.update_attributes(report_params)
-            redirect_to student_path
+        redirect_to student_path(@report.student)
     else
         render 'edit'
         end
