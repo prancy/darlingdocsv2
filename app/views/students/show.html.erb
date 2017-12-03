@@ -14,6 +14,7 @@
 </p>
 
 
+<%= link_to "Return", student_path %> 
 
 <h1>Reports</h1>
 
@@ -24,6 +25,7 @@
       <th>Participation</th>
       <th>Behavior</th>
       <th>Homework</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -33,7 +35,13 @@
         <td><%= report.participation %></td>
         <td><%= report.behavior %></td>
         <td><%= report.homework %></td>
+        <td>
+          <%= link_to "Delete this report", report_path(report.id), method: :delete, data: { confirm: "Are you sure you want to delete this report?"} %>
+          <br>
+          <%= link_to "Edit this report", edit_report_path(report.id) %>
+        </td>
       </tr>
+    
     <% end %>
     <%= link_to '<button class="button">Add a Report</button>'.html_safe, new_student_report_path(@student) %>
   </tbody>

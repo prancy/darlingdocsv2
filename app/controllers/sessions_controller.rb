@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
         else
             user = Teacher.find_by(email: params[:email])
             if user && user.authenticate(params[:password])
-                session[:user_id] = teacher.id
+                session[:user_id] = user.id
                 session[:is_teacher] = true
                 redirect_to students_path notice: 'Logged in!'
             else
