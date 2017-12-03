@@ -16,13 +16,6 @@
 
 <%= link_to "Return", student_path %> 
 
-
-<% if (session[:is_teacher]) %>
-  | <%= link_to "Add a Report", new_student_report_path(@student) %>
-<% end %>
-
-
-
 <h1>Reports</h1>
 
 <table>
@@ -50,5 +43,6 @@
       </tr>
     
     <% end %>
+    <%= link_to '<button class="button">Add a Report</button>'.html_safe, new_student_report_path(@student) %>
   </tbody>
 </table>
